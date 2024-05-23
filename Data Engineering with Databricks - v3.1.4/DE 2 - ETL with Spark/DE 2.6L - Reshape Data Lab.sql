@@ -102,11 +102,17 @@
 -- COMMAND ----------
 
 -- TODO
-CREATE OR REPLACE TEMP VIEW events_pivot
-<FILL_IN>
+CREATE OR REPLACE TEMP VIEW events_pivot AS
+SELECT user_id as user, 
+FROM events 
+PIVOT(
+  sum(user_id) as user FOR event_name in 
 ("cart", "pillows", "login", "main", "careers", "guest", "faq", "down", "warranty", "finalize", 
 "register", "shipping_info", "checkout", "mattresses", "add_item", "press", "email_coupon", 
-"cc_info", "foam", "reviews", "original", "delivery", "premium")
+"cc_info", "foam", "reviews", "original", "delivery", "premium"));
+
+--select * from events_pivot;
+--Describe table events;
 
 -- COMMAND ----------
 

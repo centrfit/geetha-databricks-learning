@@ -107,6 +107,11 @@ print("I'm running Python!")
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC SELECT "I'm running SQL!"
+
+# COMMAND ----------
+
 # DBTITLE 0,--i18n-5046f81c-cdbf-42c3-9b39-3be0721d837e
 # MAGIC %md
 # MAGIC

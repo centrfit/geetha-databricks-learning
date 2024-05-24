@@ -72,7 +72,7 @@
 -- COMMAND ----------
 
 -- TODO
-<FILL_IN>
+CREATE OR REPLACE TABLE events_raw (key BINARY, offset LONG, partition INT, timestamp LONG, topic STRING, value BINARY);
 
 -- COMMAND ----------
 
@@ -115,7 +115,8 @@
 -- COMMAND ----------
 
 -- TODO
-<FILL_IN>
+INSERT OVERWRITE events_raw
+SELECT * FROM json.`dbfs:/mnt/dbacademy-datasets/data-engineer-learning-path/v02/ecommerce/raw/events-kafka`
 
 -- COMMAND ----------
 
@@ -129,7 +130,7 @@
 -- COMMAND ----------
 
 -- TODO
-<FILL_IN>
+select * from events_raw
 
 -- COMMAND ----------
 
@@ -172,7 +173,8 @@
 -- COMMAND ----------
 
 -- TODO
-<FILL_IN> ${da.paths.datasets}/ecommerce/raw/item-lookup
+CREATE OR REPLACE TABLE item_lookup AS
+SELECT * FROM parquet.`${da.paths.datasets}/ecommerce/raw/item-lookup`
 
 -- COMMAND ----------
 
